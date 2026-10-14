@@ -179,7 +179,7 @@
             box-shadow: 0 6px 20px rgba(255, 165, 2, 0.3);
         }
 
-        /* Estilo dinámico cuando muta a modo WhatsApp listo */
+        /* Estilo dinámico cuando muta a enlace nativo de WhatsApp */
         .btn-location.ready-to-send {
             background: linear-gradient(135deg, #25d366 0%, #1ebd56 100%) !important;
             box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4) !important;
@@ -241,10 +241,10 @@
                 <span>📞</span> Contacto Alternativo (Papá)
             </a>
             
-            <!-- Botón inteligente con estados de control intermedio -->
-            <button id="getLocationBtn" class="btn btn-location">
+            <!-- Cambiado a elemento "a" nativo para asegurar la redirección externa -->
+            <a id="getLocationBtn" class="btn btn-location">
                 <span>📍</span> Obtener mi ubicación actual
-            </button>
+            </a>
             <div id="statusLocation">Obteniendo coordenadas GPS...</div>
 
             <div class="footer">
@@ -253,21 +253,20 @@
         </div>
     </div>
      <script>
-        // Variables globales de control de estado
-        var urlFinalWhatsApp = "";
         var estadoBoton = "obtener_gps";
 
-        document.getElementById('getLocationBtn').addEventListener('click', function() {
+        document.getElementById('getLocationBtn').addEventListener('click', function(e) {
             var btn = document.getElementById('getLocationBtn');
             var statusText = document.getElementById('statusLocation');
 
-            // PASO 2: Si el botón ya tiene las coordenadas listas, ejecuta la redirección directa por WhatsApp
+            // Si ya está listo para enviar, el comportamiento por defecto de la etiqueta "a" (href) abrirá WhatsApp
             if (estadoBoton === "enviar_whatsapp") {
-                window.location.href = urlFinalWhatsApp;
-                return;
+                return; 
             }
 
-            // PASO 1: Obtención de las coordenadas GPS
+            // Evitamos que intente navegar antes de tener la ubicación calculada
+            e.preventDefault();
+
             statusText.style.display = "block";
             statusText.innerText = "Accediendo al GPS del dispositivo...";
 
@@ -278,14 +277,16 @@
                     
                     statusText.innerText = "¡Ubicación calculada con éxito!";
                     
-                    var numeroPadre = "50661547634"; // Formato internacional limpio para la API
+                    var numeroPadre = "50661547634"; 
                     var textoMensaje = "Hola, encontré a Mateo. Aquí está mi ubicación actual por Google Maps: https://google.com" + latitud + "," + longitud;
                     var textoCodificado = encodeURIComponent(textoMensaje);
                     
-                    // Almacenamos el enlace listo de forma segura
-                    urlFinalWhatsApp = "https://whatsapp.com" + numeroPadre + "&text=" + textoCodificado;
+                    // 🛠️ SOLUCIÓN: Asignamos el enlace directamente al atributo href físico del elemento HTML
+                    var urlWhatsApp = "https://whatsapp.com" + numeroPadre + "&text=" + textoCodificado;
+                    btn.setAttribute("href", urlWhatsApp);
+                    btn.setAttribute("target", "_blank"); // Abre en una pestaña externa segura
                     
-                    // TRANSFORMAR EL BOTÓN: Muta visualmente a modo WhatsApp listo para burlar el bloqueo
+                    // Transmutación del botón
                     estadoBoton = "enviar_whatsapp";
                     btn.innerHTML = "<span>💬</span> Confirmar y enviar por WhatsApp";
                     btn.classList.add("ready-to-send");
