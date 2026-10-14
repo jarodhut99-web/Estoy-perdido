@@ -222,11 +222,10 @@
                 <span>📞</span> Contacto Principal (Mamá)
             </a>
             
-            <a href="tel:+50689873009" class="btn btn-call-2">
+            <a href="tel:+50661547634" class="btn btn-call-2">
                 <span>📞</span> Contacto Alternativo (Papá)
             </a>
             
-            <!-- Botón unificado para enviar ubicación por WhatsApp basado en tu invitación -->
             <button id="getLocationBtn" class="btn btn-location">
                 <span>💬</span> Compartir ubicación por WhatsApp
             </button>
@@ -237,7 +236,7 @@
             </div>
         </div>
     </div>
-    <script>
+     <script>
         document.getElementById('getLocationBtn').addEventListener('click', function() {
             var statusText = document.getElementById('statusLocation');
             statusText.style.display = "block";
@@ -251,13 +250,14 @@
                     statusText.innerText = "Ubicación obtenida. Abriendo WhatsApp...";
                     
                     var numero = "50661547634";
-                    var textoMensajeWhatsApp = "Hola, encontré a Mateo. Aquí está mi ubicación actual por Google Maps: https://google.com" + latitud + "," + longitud;
                     
-                    // Lógica idéntica de temporizador y Deep Linking extraída de tu código anterior
+                    /* 🛠️ SOLUCIÓN: Mensaje estructurado con enlace directo interactivo de Google Maps */
+                    var textoMensajeWhatsApp = "¡Hola! Encontré a Mateo. Aquí puedes ver dónde nos encontramos exactamente a través de Google Maps: https://google.com" + latitud + "," + longitud;
+                    
                     setTimeout(() => {
                         var mensaje = encodeURIComponent(textoMensajeWhatsApp);
                         
-                        // Protocolo Deep Link nativo para forzar la apertura en móviles
+                        // Protocolo Deep Link nativo heredado de tu código de invitación
                         var deepLink = `whatsapp://send?phone=${numero}&text=${mensaje}`;
                         var webLink = `https://wa.me{numero}?text=${mensaje}`;
                         
@@ -267,7 +267,7 @@
                         setTimeout(() => {
                             window.open(webLink, '_blank');
                         }, 250);
-                    }, 1000); // Pequeña pausa de 1 segundo para dar un flujo natural
+                    }, 1000); 
                     
                 }, function(error) {
                     statusText.innerText = "Error: Permiso de ubicación denegado.";
