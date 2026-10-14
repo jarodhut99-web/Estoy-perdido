@@ -59,7 +59,7 @@
         }
 
         .sidebar h2 {
-            font-size: 1.15rem;
+            font-size: 1.3rem;
             font-weight: 700;
             text-align: center;
             line-height: 1.2;
@@ -71,33 +71,29 @@
             text-transform: uppercase;
             letter-spacing: 1px;
             margin-top: 4px;
-            opacity: 0.9;
             text-align: center;
             font-weight: 700;
             color: var(--cv-beige);
         }
 
-        /* CONTENEDOR DE LOGO INSTITUCIONAL ABAJO DEL NOMBRE */
-        .profile-icon {
+        /* BOSETO/SILUETA DE UN NIÑO */
+        .child-sketch {
             width: 95px;
             height: 95px;
-            background-color: white;
+            border: 2px dashed var(--cv-beige);
             border-radius: 50%;
+            margin-top: 20px;
             display: flex;
             justify-content: center;
             align-items: center;
-            margin-top: 20px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-            border: 3px solid var(--cv-beige);
-            padding: 6px;
-            overflow: hidden;
+            position: relative;
+            background: rgba(255, 255, 255, 0.05);
         }
 
-        .profile-logo {
-            width: 100%;
-            height: auto;
-            max-height: 70px;
-            object-fit: contain;
+        .child-sketch::before {
+            content: "👤";
+            font-size: 2.5rem;
+            opacity: 0.7;
         }
 
         .sidebar-section {
@@ -119,7 +115,7 @@
         .sidebar-item {
             font-size: 0.78rem;
             margin-bottom: 8px;
-            line-height: 1.3;
+            line-height: 1.4;
             display: flex;
             align-items: flex-start;
             gap: 6px;
@@ -127,7 +123,30 @@
             color: var(--cv-beige);
         }
 
-        /* --- COLUMNA DERECHA (Contenido y Canales con Acentos Teal) --- */
+        /* CONTENEDOR PARA EL LOGO ALATXO */
+        .profile-icon {
+            width: 100px;
+            height: 100px;
+            background-color: white;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 15px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+            border: 3px solid var(--cv-beige);
+            padding: 6px;
+            overflow: hidden;
+        }
+
+        .profile-logo {
+            width: 100%;
+            height: auto;
+            max-height: 75px;
+            object-fit: contain;
+        }
+
+        /* --- COLUMNA DERECHA --- */
         .main-content {
             background: white;
             width: 58%;
@@ -164,7 +183,6 @@
             margin-top: 4px;
         }
 
-        /* Bloques de información interna */
         .info-block {
             margin-bottom: 12px;
             font-size: 0.82rem;
@@ -175,7 +193,6 @@
             color: var(--cv-teal);
         }
 
-        /* Botones unificados estéticamente con los tonos de la paleta */
         .btn {
             display: flex;
             align-items: center;
@@ -209,7 +226,7 @@
         }
 
         .btn-location {
-            background: #25d366; /* Verde WhatsApp oficial por usabilidad directa */
+            background: #25d366;
             color: white;
         }
 
@@ -241,21 +258,22 @@
         <!-- COLUMNA IZQUIERDA -->
         <div class="sidebar">
             <h2>Mateo</h2>
-            <div class="tagline">Asistencia Infantil</div>
+            <div class="tagline">ASISTENCIA INFANTIL ALATXO</div>
             
-            <div class="profile-icon">
-                <img src="Imagen 1.jpg" alt="Logo Alatxo" class="profile-logo">
-            </div>
+            <!-- BOCETO DEL NIÑO -->
+            <div class="child-sketch"></div>
             
             <div class="sidebar-section">
                 <div class="sidebar-title">PERFIL</div>
                 <div class="sidebar-item">Portador: Menor de edad extraviado. Por favor, utilice los canales seguros para coordinar el rescate inmediato.</div>
             </div>
 
+            <!-- CONTENEDOR DEL LOGO ALATXO -->
             <div class="sidebar-section">
-                <div class="sidebar-title">CONTACTO</div>
-                <div class="sidebar-item">📍 Costa Rica</div>
-                <div class="sidebar-item">🛡️ Protocolo Alatxo</div>
+                <div class="sidebar-title">LOGOTIPO</div>
+                <div class="profile-icon">
+                    <img src="Imagen 1.jpg" alt="Logo Alatxo" class="profile-logo">
+                </div>
             </div>
         </div>
 
@@ -266,8 +284,8 @@
                 soy Mateo. Parece que necesito ayuda.
             </div>
 
-            <!-- SECCIÓN: EXPERIENCIA / ACCIONES DE CONTACTO -->
-            <div class="section-title">EXPERIENCIA</div>
+            <!-- SECCIÓN DE CONTACTO -->
+            <div class="section-title">CONTACTO</div>
             <div style="margin-bottom: 16px;">
                 <a href="tel:+50664612978" class="btn btn-call-1">
                     <span>📞</span> Contacto Principal (Mamá)
@@ -283,8 +301,8 @@
                 <div id="statusLocation">Obteniendo coordenadas GPS...</div>
             </div>
 
-            <!-- SECCIÓN: HABILIDADES / NOTAS MÉDICAS -->
-            <div class="section-title">HABILIDADES</div>
+            <!-- SECCIÓN DE NOTAS MÉDICAS -->
+            <div class="section-title">⚠️ Notas Médicas / Alergias</div>
             <div class="info-block">
                 <strong>Alergias:</strong> A la penicilina.
             </div>
@@ -313,7 +331,7 @@
                     statusText.innerText = "Ubicación obtenida. Abriendo WhatsApp...";
                     
                     var numero = "50664612978";
-/* 🛠️ SOLUCIÓN EXPLICITA: Forzado de sintaxis limpia de Google Maps usando la API de consulta (?q=) */
+                    /* 🛠️ SOLUCIÓN EXPLICITA: Forzado de sintaxis limpia de Google Maps usando la API de consulta (?q=) */
                     var textoMensajeWhatsApp = "Hola, encontré a Mateo. Aquí está nuestra ubicación mediante Google Maps: https://google.com" + latitud + "," + longitud;
                     
                     // Réplica exacta de la rutina asíncrona de tu código de invitación anterior
