@@ -9,12 +9,12 @@
     <title>Protocolo de Asistencia Infantil - Alatxo</title>
     <style>
         :root {
-            --accent-navy: #1a2a3a;      /* Azul marino elegante */
-            --accent-emerald: #1b4d3e;   /* Verde esmeralda sobrio */
-            --accent-gold: #c5a059;      /* Dorado sofisticado */
-            --text-dark: #22252a;        /* Grafito oscuro */
-            --text-muted: #606870;       /* Gris neutro atenuado */
-            --bg-gradient: linear-gradient(135deg, #f4f6f8 0%, #e2e7ec 100%);
+            --cv-beige: #e5c091;          /* Color arena/beige de tu imagen */
+            --cv-teal: #0f626c;           /* Verde azulado/Teal de tu imagen */
+            --cv-teal-dark: #0a444c;      /* Variante oscura para botones y acentos */
+            --text-dark: #2d3436;         /* Gris oscuro elegante para el cuerpo */
+            --text-muted: #747d8c;        /* Gris secundario para textos informativos */
+            --border-dashed: #0f626c;     /* Líneas de puntos con el tono Teal */
         }
 
         * {
@@ -25,216 +25,282 @@
         }
 
         body {
-            background: var(--bg-gradient);
+            background: #dfe4ea;
             color: var(--text-dark);
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            padding: 20px;
+            padding: 10px;
         }
 
-        .phone-container {
+        /* Estructura general de doble columna tipo Currículum */
+        .cv-container {
             background: white;
             width: 100%;
-            max-width: 410px;
-            border-radius: 24px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+            max-width: 440px;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
             overflow: hidden;
-            border: 1px solid rgba(0, 0, 0, 0.05);
+            display: flex;
+            flex-direction: row;
+            min-height: 680px;
         }
 
-        .banner {
-            background: var(--accent-navy);
-            color: white;
-            padding: 18px;
+        /* --- COLUMNA IZQUIERDA (Perfil con Fondo Teal Profundo) --- */
+        .sidebar {
+            background: var(--cv-teal);
+            color: var(--cv-beige);
+            width: 42%;
+            padding: 24px 14px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .sidebar h2 {
+            font-size: 1.15rem;
+            font-weight: 700;
             text-align: center;
-            font-weight: 600;
-            font-size: 0.95rem;
-            letter-spacing: 1px;
+            line-height: 1.2;
+            color: var(--cv-beige);
+        }
+
+        .sidebar .tagline {
+            font-size: 0.65rem;
             text-transform: uppercase;
-        }
-
-        .content {
-            padding: 32px 24px;
+            letter-spacing: 1px;
+            margin-top: 4px;
+            opacity: 0.9;
             text-align: center;
+            font-weight: 700;
+            color: var(--cv-beige);
         }
 
-        /* CONTENEDOR OPTIMIZADO PARA TU LOGO 'Imagen 1.jpg' */
+        /* CONTENEDOR DE LOGO SITUADO ABAJO */
         .profile-icon {
-            width: 100%;
-            max-width: 260px;
-            height: auto;
-            min-height: 140px;
-            background-color: #0f626c; /* Verde Alatxo */
-            border-radius: 14px;
-            display: inline-flex;
+            width: 95px;
+            height: 95px;
+            background-color: white;
+            border-radius: 50%;
+            display: flex;
             justify-content: center;
             align-items: center;
-            margin-bottom: 24px;
-            box-shadow: 0 6px 18px rgba(15, 98, 108, 0.15);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            padding: 12px;
+            margin-top: 20px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+            border: 3px solid var(--cv-beige);
+            padding: 6px;
             overflow: hidden;
         }
 
         .profile-logo {
             width: 100%;
             height: auto;
-            max-height: 160px;
+            max-height: 70px;
             object-fit: contain;
         }
 
-        h1 {
-            font-size: 1.5rem;
+        .sidebar-section {
+            width: 100%;
+            margin-top: 24px;
+        }
+
+        .sidebar-title {
+            font-size: 0.72rem;
             font-weight: 700;
-            color: var(--accent-navy);
-            margin-bottom: 12px;
-            letter-spacing: -0.3px;
-        }
-
-        .child-message {
-            background: #f7f9fa;
-            padding: 16px;
-            border-radius: 12px;
-            font-style: italic;
-            font-weight: 500;
-            color: #4a5056;
-            margin-bottom: 24px;
-            border-left: 3px solid var(--accent-gold);
-        }
-
-        .instruction {
-            color: var(--text-muted);
-            font-size: 0.92rem;
-            line-height: 1.6;
-            margin-bottom: 24px;
-        }
-
-        .card-info {
-            background: #faf8f5;
-            border: 1px solid #eee7de;
-            border-left: 4px solid var(--accent-gold);
-            border-radius: 12px;
-            padding: 16px;
-            text-align: left;
-            margin-bottom: 28px;
-        }
-
-        .card-info h3 {
-            font-size: 0.8rem;
-            color: var(--accent-navy);
             text-transform: uppercase;
-            letter-spacing: 0.8px;
+            letter-spacing: 1px;
+            border-bottom: 1px dashed var(--cv-beige);
+            padding-bottom: 4px;
+            margin-bottom: 10px;
+            color: var(--cv-beige);
+        }
+
+        .sidebar-item {
+            font-size: 0.78rem;
             margin-bottom: 8px;
-            font-weight: 700;
-        }
-
-        .card-info p {
-            font-size: 0.95rem;
+            line-height: 1.3;
+            display: flex;
+            align-items: flex-start;
+            gap: 6px;
             font-weight: 500;
-            color: var(--text-dark);
-            line-height: 1.5;
+            color: var(--cv-beige);
         }
 
+        /* --- COLUMNA DERECHA (Contenido y Canales con Acentos Teal) --- */
+        .main-content {
+            background: white;
+            width: 58%;
+            padding: 24px 18px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .greeting {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: var(--cv-teal);
+            line-height: 1.1;
+        }
+
+        .intro-text {
+            font-size: 0.82rem;
+            color: var(--text-dark);
+            line-height: 1.4;
+            margin-top: 6px;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        .section-title {
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--cv-teal);
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            border-bottom: 1px dashed var(--border-dashed);
+            padding-bottom: 3px;
+            margin-bottom: 12px;
+            margin-top: 4px;
+        }
+
+        /* Bloques de información interna */
+        .info-block {
+            margin-bottom: 12px;
+            font-size: 0.82rem;
+            line-height: 1.4;
+        }
+
+        .info-block strong {
+            color: var(--cv-teal);
+        }
+
+        /* Botones unificados estéticamente con los tonos de la paleta */
         .btn {
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 12px;
+            gap: 8px;
             width: 100%;
-            padding: 16px;
+            padding: 12px;
             color: white;
             text-decoration: none;
-            border-radius: 12px;
-            font-size: 1rem;
+            border-radius: 6px;
+            font-size: 0.82rem;
             font-weight: 600;
-            margin-bottom: 14px;
-            transition: all 0.2s ease;
+            margin-bottom: 8px;
             border: none;
             cursor: pointer;
+            transition: transform 0.1s ease;
         }
 
         .btn:active {
             transform: scale(0.98);
-            opacity: 0.9;
         }
 
         .btn-call-1 {
-            background: var(--accent-emerald);
+            background: var(--cv-teal-dark);
+            color: var(--cv-beige);
         }
 
         .btn-call-2 {
-            background: var(--accent-navy);
+            background: var(--cv-teal);
+            color: white;
         }
 
         .btn-location {
-            background: #25d366; /* Mantenemos verde WhatsApp oficial por usabilidad */
+            background: #25d366; /* Verde WhatsApp oficial por usabilidad directa */
             color: white;
         }
 
         #statusLocation {
-            font-size: 0.82rem;
-            font-weight: 500;
-            margin-top: -8px;
-            margin-bottom: 16px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-top: -4px;
+            margin-bottom: 8px;
             color: var(--text-muted);
+            text-align: center;
             display: none;
         }
 
         .footer {
-            margin-top: 28px;
-            font-size: 0.82rem;
+            margin-top: auto;
+            padding-top: 12px;
+            border-top: 1px dashed var(--border-dashed);
+            font-size: 0.72rem;
             color: var(--text-muted);
-            line-height: 1.5;
-            letter-spacing: 0.2px;
+            text-align: center;
+            line-height: 1.3;
         }
     </style>
 </head>
 <body>
 
-    <div class="phone-container">
-        <div class="banner">Protocolo de Emergencia</div>
+    <div class="cv-container">
         
-        <div class="content">
+        <!-- COLUMNA IZQUIERDA -->
+        <div class="sidebar">
+            <h2>Juliet Maldonado</h2>
+            <div class="tagline">DISEÑADORA & ILUSTRADORA</div>
+            
+            <!-- EL LOGO SITUADO ABAJO DEL NOMBRE -->
             <div class="profile-icon">
                 <img src="Imagen 1.jpg" alt="Logo Alatxo" class="profile-logo">
             </div>
             
-            <h1>Identificación de Asistencia</h1>
-            
-            <div class="child-message">
-                «Hola, soy Mateo. Parece que necesito ayuda».
-            </div>
-            
-            <p class="instruction">Portador: menor de edad extraviado. Por favor, utilice los siguientes canales seguros para coordinar el rescate inmediato con sus tutores autorizados:</p>
-
-            <div class="card-info">
-                <h3>⚠️ Notas Médicas / Alergias:</h3>
-                <p>Alergias: A la penicilina.</p>
-                <p style="margin-top: 6px;">Medicamentos: No requiere medicamentos recurrentes.</p>
+            <div class="sidebar-section">
+                <div class="sidebar-title">PERFIL</div>
+                <div class="sidebar-item">Portador: Menor de edad extraviado bajo protocolo de asistencia infantil seguro.</div>
             </div>
 
-            <!-- BOTONES DE CONTACTO DIRECTO -->
-            <a href="tel:+50664612978" class="btn btn-call-1">
-                <span>📞</span> Contacto Principal (Mamá)
-            </a>
-            
-            <a href="tel:+50661547634" class="btn btn-call-2">
-                <span>📞</span> Contacto Alternativo (Papá)
-            </a>
-            
-            <button id="getLocationBtn" class="btn btn-location">
-                <span>💬</span> Compartir ubicación por WhatsApp
-            </button>
-            <div id="statusLocation">Obteniendo coordenadas GPS...</div>
-
-            <div class="footer">
-                <p>Agradecemos profundamente su civismo y solidaridad.</p>
+            <div class="sidebar-section">
+                <div class="sidebar-title">CONTACTO</div>
+                <div class="sidebar-item">📍 Costa Rica</div>
+                <div class="sidebar-item">🛡️ Protocolo Alatxo</div>
             </div>
         </div>
+
+        <!-- COLUMNA DERECHA -->
+        <div class="main-content">
+            <div class="greeting">Hola,</div>
+            <div class="intro-text">
+                soy Samuel. Parece que estoy perdido, ayúdame a volver con mis padres o así.
+            </div>
+
+            <!-- SECCIÓN: EXPERIENCIA / ACCIONES DE CONTACTO -->
+            <div class="section-title">EXPERIENCIA</div>
+            <div style="margin-bottom: 16px;">
+                <a href="tel:+50664612978" class="btn btn-call-1">
+                    <span>📞</span> Contacto Principal (Mamá)
+                </a>
+                
+                <a href="tel:+50661547634" class="btn btn-call-2">
+                    <span>📞</span> Contacto Alternativo (Papá)
+                </a>
+                
+                <button id="getLocationBtn" class="btn btn-location">
+                    <span>💬</span> Compartir ubicación por WhatsApp
+                </button>
+                <div id="statusLocation">Obteniendo coordenadas GPS...</div>
+            </div>
+
+            <!-- SECCIÓN: HABILIDADES / NOTAS MÉDICAS -->
+            <div class="section-title">HABILIDADES</div>
+            <div class="info-block">
+                <strong>Alergias:</strong> A la penicilina.
+            </div>
+            <div class="info-block">
+                <strong>Medicamentos:</strong> No requiere medicamentos recurrentes.
+            </div>
+
+            <!-- PIE DE PÁGINA -->
+            <div class="footer">
+                Agradecemos profundamente su civismo y solidaridad en el resguardo del menor.
+            </div>
+        </div>
+
     </div>
-    <script>
+     <script>
         document.getElementById('getLocationBtn').addEventListener('click', function() {
             var statusText = document.getElementById('statusLocation');
             statusText.style.display = "block";
@@ -249,7 +315,7 @@
                     
                     var numero = "50664612978";
 /* 🛠️ SOLUCIÓN EXPLICITA: Forzado de sintaxis limpia de Google Maps usando la API de consulta (?q=) */
-                    var textoMensajeWhatsApp = "Hola, encontré a Mateo. Aquí está nuestra ubicación mediante Google Maps: https://google.com/maps?q=" + latitud + "," + longitud;
+                    var textoMensajeWhatsApp = "Hola, encontré a Mateo. Aquí está nuestra ubicación mediante Google Maps: https://google.com" + latitud + "," + longitud;
                     
                     // Réplica exacta de la rutina asíncrona de tu código de invitación anterior
                     setTimeout(() => {
