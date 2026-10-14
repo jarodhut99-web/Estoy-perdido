@@ -10,6 +10,21 @@
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
+
+     <!-- ⚡ MITIGACIÓN AUTOMÁTICA: Fuerza al celular a destruir la caché vieja al abrir el link -->
+    <script>
+        (function() {
+            var VERSION_ACTUAL = "2.0"; 
+            var url = new URL(window.location.href);
+            var versionGuardada = localStorage.getItem("app_version");
+
+            if (versionGuardada !== VERSION_ACTUAL) {
+                localStorage.setItem("app_version", VERSION_ACTUAL);
+                url.searchParams.set("cache_bust", Date.now());
+                window.location.replace(url.toString());
+            }
+        })();
+    </script>
     
     <title>Protocolo de Asistencia Infantil - Alatxo</title>
     <style>
