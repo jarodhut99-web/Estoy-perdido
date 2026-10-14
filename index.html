@@ -6,12 +6,13 @@
     <!-- 1. PROTECCIÓN DE PRIVACIDAD: Evita que Google indexe esta página -->
     <meta name="robots" content="noindex, nofollow">
     
-    <title>Contacto de Emergencia</title>
+    <title>Protocolo de Asistencia Infantil</title>
     <style>
         :root {
             --accent-red: #ff4757;
             --accent-green: #2ed573;
             --accent-blue: #1e90ff;
+            --accent-orange: #ffa502;
             --text-dark: #2f3542;
             --text-muted: #747d8c;
             --bg-gradient: linear-gradient(135deg, #f1f2f6 0%, #dfe4ea 100%);
@@ -61,7 +62,7 @@
             text-align: center;
         }
 
-        /* DISEÑO PROFESIONAL DEL ICONO CENTRAL */
+        /* ICONO INSTITUCIONAL */
         .profile-icon {
             width: 90px;
             height: 90px;
@@ -84,21 +85,34 @@
             margin-bottom: 8px;
         }
 
-        .instruction {
-            color: var(--text-muted);
-            font-size: 1rem;
-            line-height: 1.5;
-            margin-bottom: 30px;
+        /* MENSAJE ENFOCADO EN EL NIÑO */
+        .child-message {
+            background: #f1f2f6;
+            padding: 14px;
+            border-radius: 14px;
+            font-style: italic;
+            font-weight: 600;
+            color: #57606f;
+            margin-bottom: 24px;
+            border-left: 4px solid var(--text-muted);
         }
 
+        .instruction {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.5;
+            margin-bottom: 25px;
+        }
+
+        /* INFORMACIÓN MÉDICA SECCIÓN */
         .card-info {
             background: #fffaf0;
             border: 1px solid #ffeaa7;
-            border-left: 5px solid #ffa502;
+            border-left: 5px solid var(--accent-orange);
             border-radius: 16px;
             padding: 16px;
             text-align: left;
-            margin-bottom: 30px;
+            margin-bottom: 25px;
         }
 
         .card-info h3 {
@@ -111,12 +125,13 @@
         }
 
         .card-info p {
-            font-size: 1.05rem;
+            font-size: 1rem;
             font-weight: 600;
             color: #2d3436;
             line-height: 1.4;
         }
 
+        /* BOTONES */
         .btn {
             display: flex;
             align-items: center;
@@ -127,11 +142,13 @@
             color: white;
             text-decoration: none;
             border-radius: 18px;
-            font-size: 1.2rem;
+            font-size: 1.15rem;
             font-weight: 700;
             margin-bottom: 16px;
             transition: all 0.2s ease;
             box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+            border: none;
+            cursor: pointer;
         }
 
         .btn:active {
@@ -149,6 +166,21 @@
             box-shadow: 0 6px 20px rgba(30, 144, 255, 0.25);
         }
 
+        /* BOTÓN DE GEOLOCALIZACIÓN */
+        .btn-location {
+            background: linear-gradient(135deg, #ffa502 0%, #ff7f50 100%);
+            box-shadow: 0 6px 20px rgba(255, 165, 2, 0.3);
+        }
+
+        #statusLocation {
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-top: -10px;
+            margin-bottom: 15px;
+            color: #57606f;
+            display: none;
+        }
+
         .footer {
             margin-top: 25px;
             font-size: 0.85rem;
@@ -163,32 +195,87 @@
         <div class="banner">🚨 Protocolo de Emergencia</div>
         
         <div class="content">
-            <!-- Icono profesional de escudo médico de asistencia en emergencias -->
             <div class="profile-icon">🛡️</div>
             
-            <h1>Dispositivo de Asistencia</h1>
-            <p class="instruction">Portador menor de edad extraviado. Por favor, póngase en contacto inmediato con sus tutores responsables mediante las siguientes vías directas:</p>
+            <h1>Identificación de Asistencia</h1>
+            
+            <!-- 1. Identificación del niño (Nombre de pila y mensaje) -->
+            <div class="child-message">
+                «Hola, soy Mateo. Parece que necesito ayuda».
+            </div>
+            
+            <p class="instruction">Portador menor de edad extraviado. Por favor, utilice los siguientes canales seguros para coordinar el rescate inmediato con sus tutores autorizados:</p>
 
+            <!-- 3. Información médica relevante -->
             <div class="card-info">
                 <h3>⚠️ Notas Médicas / Alergias:</h3>
-                <p>Ninguna alergia conocida. Tipo de sangre: O positivo.</p>
+                <p>Ninguna alergia conocida. Condición médica: No requiere medicamentos recurrentes. Tipo de sangre: O positivo.</p>
             </div>
 
-            <!-- BOTONES DE CONTACTO DIRECTO -->
-            
+            <!-- 2. Contactos de emergencia y botones de llamada rápida -->
+            <!-- Reemplaza los números '+50661547634' con los reales de los padres -->
             <a href="tel:+50661547634" class="btn btn-call-1">
-                <span>📞</span> Llamar a Contacto 1 (Mamá)
+                <span>📞</span> Contacto Principal (Mamá)
             </a>
             
             <a href="tel:+50661547634" class="btn btn-call-2">
-                <span>📞</span> Llamar a Contacto 2 (Papá)
+                <span>📞</span> Contacto Alternativo (Papá)
             </a>
+            
+            <!-- 4. Opción para compartir la ubicación GPS actual por SMS nativo -->
+            <button id="getLocationBtn" class="btn btn-location">
+                <span>📍</span> Enviar mi ubicación actual
+            </button>
+            <div id="statusLocation">Obteniendo coordenadas GPS...</div>
 
             <div class="footer">
-                <p>Este sistema está diseñado para agilizar la reunificación familiar en situaciones críticas. Agradecemos profundamente su colaboración ciudadana.</p>
+                <p>Este ecosistema digital resguarda la privacidad del menor. Agradecemos profundamente su civismo y solidaridad.</p>
             </div>
         </div>
     </div>
+
+    <!-- SCRIPT SEGURO PARA EL RASTREO Y NOTIFICACIÓN POR SMS -->
+    <script>
+        document.getElementById('getLocationBtn').addEventListener('click', function() {
+            var statusText = document.getElementById('statusLocation');
+            statusText.style.display = "block";
+            statusText.innerText = "Accediendo al GPS del dispositivo...";
+
+            // Verificación estándar del API de Navegación Geodésica
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(function(position) {
+                    var latitud = position.coords.latitude;
+                    var longitud = position.coords.longitude;
+                    
+                    statusText.innerText = "¡Coordenadas obtenidas con éxito!";
+                    
+                    // Definición de destinatario principal para el SMS (Fijado a Mamá)
+                    var numeroPadre = "+50661547634"; 
+                    
+                    // Cuerpo del mensaje SMS incluyendo el link dinámico de mapas
+                    var textoMensaje = "Hola, encontre a Mateo. Aqui esta mi ubicacion en tiempo real por Google Maps: https://google.com" + latitud + "," + longitud;
+                    var textoCodificado = encodeURIComponent(textoMensaje);
+                    
+                    // Generación del protocolo del sistema operativo para SMS nativos
+                    // Nota: 'sms:' funciona de manera universal en Android y iOS modernos
+                    var enlaceSMS = "sms:" + numeroPadre + "?body=" + textoCodificado;
+                    
+                    // Ejecuta la apertura nativa de la app de mensajería del teléfono
+                    window.location.href = enlaceSMS;
+                    
+                }, function(error) {
+                    // Control de denegación de permisos o error de hardware
+                    statusText.innerText = "Error: Permiso de ubicación denegado por el usuario.";
+                    alert("Por favor, permite el acceso al GPS para poder enviar las coordenadas a sus padres.");
+                }, {
+                    enableHighAccuracy: true, // Forzar uso de antenas GPS de alta precisión
+                    timeout: 10000
+                });
+            } else {
+                statusText.innerText = "Este navegador no soporta geolocalización móvil.";
+            }
+        });
+    </script>
 
 </body>
 </html>
