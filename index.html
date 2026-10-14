@@ -9,13 +9,12 @@
     <title>Protocolo de Asistencia Infantil - Alatxo</title>
     <style>
         :root {
-            --accent-red: #ff4757;
-            --accent-green: #2ed573;
-            --accent-blue: #1e90ff;
-            --accent-orange: #ffa502;
-            --text-dark: #2f3542;
-            --text-muted: #747d8c;
-            --bg-gradient: linear-gradient(135deg, #f1f2f6 0%, #dfe4ea 100%);
+            --accent-navy: #1a2a3a;      /* Azul marino elegante */
+            --accent-emerald: #1b4d3e;   /* Verde esmeralda sobrio */
+            --accent-gold: #c5a059;      /* Dorado sofisticado */
+            --text-dark: #22252a;        /* Grafito oscuro */
+            --text-muted: #606870;       /* Gris neutro atenuado */
+            --bg-gradient: linear-gradient(135deg, #f4f6f8 0%, #e2e7ec 100%);
         }
 
         * {
@@ -39,26 +38,25 @@
             background: white;
             width: 100%;
             max-width: 410px;
-            border-radius: 30px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+            border-radius: 24px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.08);
             overflow: hidden;
-            border: 1px solid rgba(255, 255, 255, 0.8);
+            border: 1px solid rgba(0, 0, 0, 0.05);
         }
 
         .banner {
-            background: linear-gradient(135deg, #ff4757 0%, #ff6b81 100%);
+            background: var(--accent-navy);
             color: white;
-            padding: 20px;
+            padding: 18px;
             text-align: center;
-            font-weight: 700;
-            font-size: 1.1rem;
-            letter-spacing: 0.5px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            letter-spacing: 1px;
             text-transform: uppercase;
-            box-shadow: 0 4px 15px rgba(255, 71, 87, 0.2);
         }
 
         .content {
-            padding: 30px 24px;
+            padding: 32px 24px;
             text-align: center;
         }
 
@@ -69,13 +67,13 @@
             height: auto;
             min-height: 140px;
             background-color: #0f626c; /* Verde Alatxo */
-            border-radius: 18px;
+            border-radius: 14px;
             display: inline-flex;
             justify-content: center;
             align-items: center;
-            margin-bottom: 20px;
-            box-shadow: 0 8px 24px rgba(15, 98, 108, 0.2);
-            border: 3px solid rgba(255, 255, 255, 0.4);
+            margin-bottom: 24px;
+            box-shadow: 0 6px 18px rgba(15, 98, 108, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.2);
             padding: 12px;
             overflow: hidden;
         }
@@ -88,54 +86,55 @@
         }
 
         h1 {
-            font-size: 1.7rem;
-            font-weight: 800;
-            color: #1e272e;
-            margin-bottom: 8px;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent-navy);
+            margin-bottom: 12px;
+            letter-spacing: -0.3px;
         }
 
         .child-message {
-            background: #f1f2f6;
-            padding: 14px;
-            border-radius: 14px;
+            background: #f7f9fa;
+            padding: 16px;
+            border-radius: 12px;
             font-style: italic;
-            font-weight: 600;
-            color: #57606f;
+            font-weight: 500;
+            color: #4a5056;
             margin-bottom: 24px;
-            border-left: 4px solid var(--text-muted);
+            border-left: 3px solid var(--accent-gold);
         }
 
         .instruction {
             color: var(--text-muted);
-            font-size: 0.95rem;
-            line-height: 1.5;
-            margin-bottom: 25px;
+            font-size: 0.92rem;
+            line-height: 1.6;
+            margin-bottom: 24px;
         }
 
         .card-info {
-            background: #fffaf0;
-            border: 1px solid #ffeaa7;
-            border-left: 5px solid var(--accent-orange);
-            border-radius: 16px;
+            background: #faf8f5;
+            border: 1px solid #eee7de;
+            border-left: 4px solid var(--accent-gold);
+            border-radius: 12px;
             padding: 16px;
             text-align: left;
-            margin-bottom: 25px;
+            margin-bottom: 28px;
         }
 
         .card-info h3 {
-            font-size: 0.85rem;
-            color: #d63031;
+            font-size: 0.8rem;
+            color: var(--accent-navy);
             text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-bottom: 6px;
+            letter-spacing: 0.8px;
+            margin-bottom: 8px;
             font-weight: 700;
         }
 
         .card-info p {
-            font-size: 1rem;
-            font-weight: 600;
-            color: #2d3436;
-            line-height: 1.4;
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--text-dark);
+            line-height: 1.5;
         }
 
         .btn {
@@ -144,60 +143,58 @@
             justify-content: center;
             gap: 12px;
             width: 100%;
-            padding: 18px;
+            padding: 16px;
             color: white;
             text-decoration: none;
-            border-radius: 18px;
-            font-size: 1.15rem;
-            font-weight: 700;
-            margin-bottom: 16px;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 14px;
             transition: all 0.2s ease;
-            box-shadow: 0 6px 15px rgba(0,0,0,0.08);
             border: none;
             cursor: pointer;
         }
 
         .btn:active {
-            transform: scale(0.97);
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transform: scale(0.98);
+            opacity: 0.9;
         }
 
         .btn-call-1 {
-            background: linear-gradient(135deg, #2ed573 0%, #26af5f 100%);
-            box-shadow: 0 6px 20px rgba(46, 213, 115, 0.25);
+            background: var(--accent-emerald);
         }
 
         .btn-call-2 {
-            background: linear-gradient(135deg, #1e90ff 0%, #1771d1 100%);
-            box-shadow: 0 6px 20px rgba(30, 144, 255, 0.25);
+            background: var(--accent-navy);
         }
 
         .btn-location {
-            background: linear-gradient(135deg, #25d366 0%, #1ebd56 100%); /* Verde WhatsApp */
-            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.3);
+            background: #25d366; /* Mantenemos verde WhatsApp oficial por usabilidad */
+            color: white;
         }
 
         #statusLocation {
-            font-size: 0.85rem;
-            font-weight: 600;
-            margin-top: -10px;
-            margin-bottom: 15px;
-            color: #57606f;
+            font-size: 0.82rem;
+            font-weight: 500;
+            margin-top: -8px;
+            margin-bottom: 16px;
+            color: var(--text-muted);
             display: none;
         }
 
         .footer {
-            margin-top: 25px;
-            font-size: 0.85rem;
+            margin-top: 28px;
+            font-size: 0.82rem;
             color: var(--text-muted);
-            line-height: 1.4;
+            line-height: 1.5;
+            letter-spacing: 0.2px;
         }
     </style>
 </head>
 <body>
 
     <div class="phone-container">
-        <div class="banner">🚨 Protocolo de Emergencia</div>
+        <div class="banner">Protocolo de Emergencia</div>
         
         <div class="content">
             <div class="profile-icon">
@@ -251,9 +248,8 @@
                     statusText.innerText = "Ubicación obtenida. Abriendo WhatsApp...";
                     
                     var numero = "50664612978";
-                    
-                    /* 🛠️ SOLUCIÓN EXPLICITA: Forzado de sintaxis limpia de Google Maps usando la API de consulta (?q=) */
-                    var textoMensajeWhatsApp = "Hola, encontré a Mateo. Aquí está nuestra ubicación mediante Google Maps: https://www.google.com/maps?q=" + latitud + "," + longitud;
+/* 🛠️ SOLUCIÓN EXPLICITA: Forzado de sintaxis limpia de Google Maps usando la API de consulta (?q=) */
+                    var textoMensajeWhatsApp = "Hola, encontré a Mateo. Aquí está nuestra ubicación mediante Google Maps: https://google.com" + latitud + "," + longitud;
                     
                     // Réplica exacta de la rutina asíncrona de tu código de invitación anterior
                     setTimeout(() => {
