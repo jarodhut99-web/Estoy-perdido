@@ -66,16 +66,6 @@
             color: var(--cv-beige);
         }
 
-        .sidebar .tagline {
-            font-size: 0.65rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-top: 4px;
-            text-align: center;
-            font-weight: 700;
-            color: var(--cv-beige);
-        }
-
         /* BOSETO/SILUETA DE UN NIÑO */
         .child-sketch {
             width: 95px;
@@ -98,7 +88,11 @@
 
         .sidebar-section {
             width: 100%;
-            margin-top: 24px;
+        }
+
+        /* DESPLAZAMIENTO RECUADRO VERDE: Margen superior sutil para bajarlo un poco */
+        .sidebar-section.portador {
+            margin-top: 35px;
         }
 
         .sidebar-title {
@@ -123,16 +117,16 @@
             color: var(--cv-beige);
         }
 
-        /* CONTENEDOR PARA EL LOGO ALATXO */
-        .profile-icon {
-            width: 100px;
-            height: 100px;
+        /* AJUSTE RECUADRO MORADO: Contenedor con forma cuadrada para el logo abajo */
+        .profile-icon-square {
+            width: 110px;
+            height: 110px;
             background-color: white;
-            border-radius: 50%;
+            border-radius: 12px;
             display: flex;
             justify-content: center;
             align-items: center;
-            margin-top: 15px;
+            margin-top: 40px;
             box-shadow: 0 4px 10px rgba(0,0,0,0.15);
             border: 3px solid var(--cv-beige);
             padding: 6px;
@@ -142,7 +136,7 @@
         .profile-logo {
             width: 100%;
             height: auto;
-            max-height: 75px;
+            max-height: 95px;
             object-fit: contain;
         }
 
@@ -262,16 +256,15 @@
             <!-- BOCETO DEL NIÑO -->
             <div class="child-sketch"></div>
             
-            <div class="sidebar-section">
+            <!-- RECUADRO VERDE: Sección portador desplazada un poco hacia abajo -->
+            <div class="sidebar-section portador">
                 <div class="sidebar-title">Portador</div>
                 <div class="sidebar-item">Menor de edad extraviado. Por favor, utilice los canales seguros para coordinar el rescate inmediato.</div>
             </div>
 
-            <!-- CONTENEDOR DEL LOGO ALATXO -->
-            <div class="sidebar-section">
-                <div class="profile-icon">
-                    <img src="Imagen 1.jpg" alt="Logo Alatxo" class="profile-logo">
-                </div>
+            <!-- RECUADRO MORADO: Contenedor con forma cuadrada para el logo abajo -->
+            <div class="profile-icon-square">
+                <img src="Imagen 1.jpg" alt="Logo Alatxo" class="profile-logo">
             </div>
         </div>
 
@@ -330,7 +323,7 @@
                     
                     var numero = "50664612978";
                     /* 🛠️ SOLUCIÓN EXPLICITA: Forzado de sintaxis limpia de Google Maps usando la API de consulta (?q=) */
-                    var textoMensajeWhatsApp = "Hola, encontré a Samuel. Aquí está nuestra ubicación mediante Google Maps: https://google.com/maps?q=" + latitud + "," + longitud;
+                    var textoMensajeWhatsApp = "Hola, encontré a Samuel. Aquí está nuestra ubicación mediante Google Maps: https://google.com" + latitud + "," + longitud;
                     
                     // Réplica exacta de la rutina asíncrona de tu código de invitación anterior
                     setTimeout(() => {
