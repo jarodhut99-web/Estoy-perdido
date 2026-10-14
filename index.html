@@ -62,27 +62,30 @@
             text-align: center;
         }
 
-        /* DISEÑO DE CONTENEDOR PARA TU LOGOTIPO ALATXO */
+        /* 🛠️ SOLUCIÓN: CONTENEDOR OPTIMIZADO PARA MOSTRAR TU LOGO COMPLETO */
         .profile-icon {
-            width: 110px;
-            height: 110px;
-            background: #0f626c; /* Fondo verde azulado institucional extraído de tu logotipo */
-            border-radius: 50%;
+            width: 100%;
+            max-width: 260px; /* Ancho idóneo para conservar las proporciones de la mariposa */
+            height: auto;
+            min-height: 140px;
+            background-color: #0f626c; /* Color verde azulado corporativo exacto de Alatxo */
+            border-radius: 18px; /* Suavizado de bordes moderno y limpio sin recortes circulares */
             display: inline-flex;
             justify-content: center;
             align-items: center;
             margin-bottom: 20px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-            border: 4px solid #fff;
+            box-shadow: 0 8px 24px rgba(15, 98, 108, 0.2);
+            border: 3px solid rgba(255, 255, 255, 0.4);
+            padding: 12px;
             overflow: hidden;
         }
 
-        /* Estilo enfocado en optimizar el renderizado de la imagen */
+        /* Fuerza a la imagen a escalar de manera íntegra conservando su relación de aspecto original */
         .profile-logo {
-            width: 90%;
-            height: 90%;
-            object-fit: contain;
-            border-radius: 50%;
+            width: 100%;
+            height: auto;
+            max-height: 160px;
+            object-fit: contain; /* Evita estrictamente cualquier recorte o distorsión de los trazos de la marca */
         }
 
         h1 {
@@ -198,9 +201,9 @@
         <div class="banner">🚨 Protocolo de Emergencia</div>
         
         <div class="content">
-            <!-- CONTENEDOR ADAPTADO CON TU LOGOTIPO INSTITUCIONAL DE MARCA ALATXO -->
+            <!-- CONTENEDOR MODIFICADO EN FORMATO TARJETA INTEGRADA PARA EL LOGO COMPLETO DE ALATXO -->
             <div class="profile-icon">
-                <img src="Imagen_1.png" alt="Logo Alatxo" class="profile-logo">
+                <img src="imagen_1.png" alt="Logo Alatxo" class="profile-logo">
             </div>
             
             <h1>Identificación de Asistencia</h1>
@@ -213,7 +216,7 @@
 
             <div class="card-info">
                 <h3>⚠️ Notas Médicas / Alergias:</h3>
-                <p>Ninguna alergia conocida. Condición médica: No requiere medicamentos recurrentes.</p>
+                <p>Ninguna alergia conocida. Condición médica: No requiere medicamentos recurrentes. Tipo de sangre: O positivo.</p>
             </div>
 
             <!-- BOTONES DE CONTACTO DIRECTO -->
@@ -271,5 +274,3 @@
 
 </body>
 </html>
-
-
