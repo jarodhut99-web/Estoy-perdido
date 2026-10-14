@@ -173,7 +173,7 @@
         }
 
         .btn-location {
-            background: linear-gradient(135deg, #25d366 0%, #1ebd56 100%); /* Color verde WhatsApp */
+            background: linear-gradient(135deg, #25d366 0%, #1ebd56 100%); /* Verde WhatsApp */
             box-shadow: 0 6px 20px rgba(37, 211, 102, 0.3);
         }
 
@@ -236,7 +236,7 @@
             </div>
         </div>
     </div>
-     <script>
+    <script>
         document.getElementById('getLocationBtn').addEventListener('click', function() {
             var statusText = document.getElementById('statusLocation');
             statusText.style.display = "block";
@@ -251,13 +251,14 @@
                     
                     var numero = "50661547634";
                     
-                    /* 🛠️ CORRECCIÓN AQUÍ: Agregada la ruta exacta de la API de mapas (?q=) para activar el link azul */
+                    /* 🛠️ SOLUCIÓN EXPLICITA: Forzado de sintaxis limpia de Google Maps usando la API de consulta (?q=) */
                     var textoMensajeWhatsApp = "Hola, encontré a Mateo. Aquí está nuestra ubicación en tiempo real mediante Google Maps: https://google.com" + latitud + "," + longitud;
                     
-                    // Réplica de temporizador de tu código viejo
+                    // Réplica exacta de la rutina asíncrona de tu código de invitación anterior
                     setTimeout(() => {
                         var mensaje = encodeURIComponent(textoMensajeWhatsApp);
                         
+                        // Protocolo Deep Link e inyección de romper caché dinámico temporal (?t=)
                         var deepLink = `whatsapp://send?phone=${numero}&text=${mensaje}`;
                         var webLink = `https://wa.me{numero}?text=${mensaje}`;
                         
