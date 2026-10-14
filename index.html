@@ -3,7 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Información de Contacto de Emergencia</title>
+    <!-- 1. PROTECCIÓN DE PRIVACIDAD: Evita que Google indexe esta página -->
+    <meta name="robots" content="noindex, nofollow">
+    
+    <title>Contacto de Emergencia</title>
     <style>
         :root {
             --accent-red: #ff4757;
@@ -41,7 +44,6 @@
             border: 1px solid rgba(255, 255, 255, 0.8);
         }
 
-        /* Encabezado con efecto moderno */
         .banner {
             background: linear-gradient(135deg, #ff4757 0%, #ff6b81 100%);
             color: white;
@@ -59,7 +61,6 @@
             text-align: center;
         }
 
-        /* Círculo de ícono o iniciales */
         .profile-icon {
             width: 90px;
             height: 90px;
@@ -88,7 +89,6 @@
             margin-bottom: 30px;
         }
 
-        /* Sección de Información Médica / Alergias */
         .card-info {
             background: #fffaf0;
             border: 1px solid #ffeaa7;
@@ -115,7 +115,6 @@
             line-height: 1.4;
         }
 
-        /* Botones de Acción Estilizados */
         .btn {
             display: flex;
             align-items: center;
@@ -164,40 +163,38 @@
 <body>
 
     <div class="phone-container">
-        <!-- Barra de estado superior de aviso -->
         <div class="banner">🚨 Contacto de Emergencia</div>
         
         <div class="content">
-            <!-- Icono animado/bonito de un niño o niña (puedes cambiar el emoji) -->
             <div class="profile-icon">👦🏽</div>
             
             <h1>¡Hola! Me he perdido</h1>
             <p class="instruction">Por favor, ayuda a que regrese a salvo usando cualquiera de los siguientes botones para contactar a mis papás:</p>
 
-            <!-- Bloque de Notas de Salud (Crucial para emergencias) -->
             <div class="card-info">
                 <h3>⚠️ Notas Médicas / Alergias:</h3>
                 <p>Ninguna alergia conocida. Tipo de sangre: O positivo.</p>
             </div>
 
             <!-- BOTONES DE CONTACTO DIRECTO -->
-            <!-- Recuerda cambiar '+50688888888' por tus números telefónicos reales -->
+            <!-- Recuerda cambiar '+50688888888' por tus números reales (Mantén el código de país) -->
             
             <a href="tel:+50661547634" class="btn btn-call-1">
-                <span>📞</span> Llamar a Mamá ()
+                <span>📞</span> Llamar a Mamá
             </a>
             
             <a href="tel:+50661547634" class="btn btn-call-2">
-                <span>📞</span> Llamar a Papá ()
+                <span>📞</span> Llamar a Papá
             </a>
             
-            <!-- Envía un mensaje pre-escrito directo a WhatsApp -->
-            <a href="https://wa.me." class="btn btn-whatsapp">
+            <!-- 2. CORRECCIÓN: Enlace directo a WhatsApp con texto de emergencia prellenado -->
+            <!-- Cambia +50688888888 por el número que recibirá los mensajes (sin el símbolo +) -->
+            <a href="https://wa.me." class="btn btn-whatsapp" target="_blank">
                 <span>💬</span> Enviar un WhatsApp
             </a>
 
             <div class="footer">
-                <p>Muchas gracias por tu empatía y ayuda. Su familia te lo agradece profundamente.</p>
+                <p>Muchas gracias por tu empatía y ayuda. Mi familia te lo agradece profundamente.</p>
             </div>
         </div>
     </div>
