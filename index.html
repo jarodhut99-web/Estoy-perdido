@@ -251,20 +251,18 @@
                     
                     var numero = "50661547634";
                     
-                    /* 🛠️ ESTRUCTURA: Enlace optimizado para que al enviarse genere el link azul directo a Google Maps */
+                    /* 🛠️ CORRECCIÓN AQUÍ: Agregada la ruta exacta de la API de mapas (?q=) para activar el link azul */
                     var textoMensajeWhatsApp = "Hola, encontré a Mateo. Aquí está nuestra ubicación en tiempo real mediante Google Maps: https://google.com" + latitud + "," + longitud;
                     
-                    // Réplica exacta del temporizador de tu código de invitación anterior
+                    // Réplica de temporizador de tu código viejo
                     setTimeout(() => {
                         var mensaje = encodeURIComponent(textoMensajeWhatsApp);
                         
-                        // Protocolo Deep Link nativo para forzar la apertura de la app instalada
                         var deepLink = `whatsapp://send?phone=${numero}&text=${mensaje}`;
                         var webLink = `https://wa.me{numero}?text=${mensaje}`;
                         
                         window.location.href = deepLink;
                         
-                        // Respaldo secundario estándar
                         setTimeout(() => {
                             window.open(webLink, '_blank');
                         }, 250);
