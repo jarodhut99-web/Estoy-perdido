@@ -90,9 +90,9 @@
             width: 100%;
         }
 
-        /* DESPLAZAMIENTO RECUADRO VERDE: Margen superior sutil para bajarlo un poco */
+        /* CAMBIO: Se aumentó el margen superior para empujar el cuadro verde más abajo */
         .sidebar-section.portador {
-            margin-top: 35px;
+            margin-top: 65px;
         }
 
         .sidebar-title {
@@ -117,7 +117,7 @@
             color: var(--cv-beige);
         }
 
-        /* AJUSTE RECUADRO MORADO: Contenedor con forma cuadrada para el logo abajo */
+        /* CAMBIO: Se aumentó el margen superior para empujar el logo cuadrado al extremo inferior */
         .profile-icon-square {
             width: 110px;
             height: 110px;
@@ -126,7 +126,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            margin-top: 40px;
+            margin-top: 80px;
             box-shadow: 0 4px 10px rgba(0,0,0,0.15);
             border: 3px solid var(--cv-beige);
             padding: 6px;
@@ -256,13 +256,13 @@
             <!-- BOCETO DEL NIÑO -->
             <div class="child-sketch"></div>
             
-            <!-- RECUADRO VERDE: Sección portador desplazada un poco hacia abajo -->
+            <!-- RECUADRO VERDE: Sección portador desplazada más abajo -->
             <div class="sidebar-section portador">
                 <div class="sidebar-title">Portador</div>
                 <div class="sidebar-item">Menor de edad extraviado. Por favor, utilice los canales seguros para coordinar el rescate inmediato.</div>
             </div>
 
-            <!-- RECUADRO MORADO: Contenedor con forma cuadrada para el logo abajo -->
+            <!-- RECUADRO MORADO: Contenedor cuadrado para el logo empujado al extremo inferior -->
             <div class="profile-icon-square">
                 <img src="Imagen 1.jpg" alt="Logo Alatxo" class="profile-logo">
             </div>
@@ -323,7 +323,7 @@
                     
                     var numero = "50664612978";
                     /* 🛠️ SOLUCIÓN EXPLICITA: Forzado de sintaxis limpia de Google Maps usando la API de consulta (?q=) */
-                    var textoMensajeWhatsApp = "Hola, encontré a Samuel. Aquí está nuestra ubicación mediante Google Maps: https://google.com" + latitud + "," + longitud;
+                    var textoMensajeWhatsApp = "Hola, encontré a Samuel. Aquí está nuestra ubicación mediante Google Maps: https://google.com/maps?q=" + latitud + "," + longitud;
                     
                     // Réplica exacta de la rutina asíncrona de tu código de invitación anterior
                     setTimeout(() => {
