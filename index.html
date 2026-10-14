@@ -13,7 +13,6 @@
             --accent-green: #2ed573;
             --accent-blue: #1e90ff;
             --accent-orange: #ffa502;
-            --whatsapp-color: #25d366;
             --text-dark: #2f3542;
             --text-muted: #747d8c;
             --bg-gradient: linear-gradient(135deg, #f1f2f6 0%, #dfe4ea 100%);
@@ -63,13 +62,13 @@
             text-align: center;
         }
 
-        /* CONTENEDOR OPTIMIZADO PARA TU LOGO COMPLETO 'Imagen 1.jpg' */
+        /* CONTENEDOR OPTIMIZADO PARA TU LOGO 'Imagen 1.jpg' */
         .profile-icon {
             width: 100%;
             max-width: 260px;
             height: auto;
             min-height: 140px;
-            background-color: #0f626c; /* Color verde azulado corporativo de Alatxo */
+            background-color: #0f626c; /* Verde Alatxo */
             border-radius: 18px;
             display: inline-flex;
             justify-content: center;
@@ -152,7 +151,7 @@
             font-size: 1.15rem;
             font-weight: 700;
             margin-bottom: 16px;
-            transition: all 0.3s ease;
+            transition: all 0.2s ease;
             box-shadow: 0 6px 15px rgba(0,0,0,0.08);
             border: none;
             cursor: pointer;
@@ -173,23 +172,9 @@
             box-shadow: 0 6px 20px rgba(30, 144, 255, 0.25);
         }
 
-        /* Estilo inicial del botón de localización */
         .btn-location {
-            background: linear-gradient(135deg, #ffa502 0%, #ff7f50 100%);
-            box-shadow: 0 6px 20px rgba(255, 165, 2, 0.3);
-        }
-
-        /* Estilo dinámico cuando muta a enlace nativo de WhatsApp */
-        .btn-location.ready-to-send {
-            background: linear-gradient(135deg, #25d366 0%, #1ebd56 100%) !important;
-            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4) !important;
-            animation: pulse 1.5s infinite;
-        }
-
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.02); }
-            100% { transform: scale(1); }
+            background: linear-gradient(135deg, #25d366 0%, #1ebd56 100%); /* Color verde WhatsApp */
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.3);
         }
 
         #statusLocation {
@@ -241,10 +226,10 @@
                 <span>📞</span> Contacto Alternativo (Papá)
             </a>
             
-            <!-- Cambiado a elemento "a" nativo para asegurar la redirección externa -->
-            <a id="getLocationBtn" class="btn btn-location">
-                <span>📍</span> Obtener mi ubicación actual
-            </a>
+            <!-- Botón unificado para enviar ubicación por WhatsApp basado en tu invitación -->
+            <button id="getLocationBtn" class="btn btn-location">
+                <span>💬</span> Compartir ubicación por WhatsApp
+            </button>
             <div id="statusLocation">Obteniendo coordenadas GPS...</div>
 
             <div class="footer">
@@ -252,21 +237,9 @@
             </div>
         </div>
     </div>
-     <script>
-        var estadoBoton = "obtener_gps";
-
-        document.getElementById('getLocationBtn').addEventListener('click', function(e) {
-            var btn = document.getElementById('getLocationBtn');
+    <script>
+        document.getElementById('getLocationBtn').addEventListener('click', function() {
             var statusText = document.getElementById('statusLocation');
-
-            // Si ya está listo para enviar, el comportamiento por defecto de la etiqueta "a" (href) abrirá WhatsApp
-            if (estadoBoton === "enviar_whatsapp") {
-                return; 
-            }
-
-            // Evitamos que intente navegar antes de tener la ubicación calculada
-            e.preventDefault();
-
             statusText.style.display = "block";
             statusText.innerText = "Accediendo al GPS del dispositivo...";
 
@@ -275,21 +248,26 @@
                     var latitud = position.coords.latitude;
                     var longitud = position.coords.longitude;
                     
-                    statusText.innerText = "¡Ubicación calculada con éxito!";
+                    statusText.innerText = "Ubicación obtenida. Abriendo WhatsApp...";
                     
-                    var numeroPadre = "50661547634"; 
-                    var textoMensaje = "Hola, encontré a Mateo. Aquí está mi ubicación actual por Google Maps: https://google.com" + latitud + "," + longitud;
-                    var textoCodificado = encodeURIComponent(textoMensaje);
+                    var numero = "50661547634";
+                    var textoMensajeWhatsApp = "Hola, encontré a Mateo. Aquí está mi ubicación actual por Google Maps: https://google.com" + latitud + "," + longitud;
                     
-                    // 🛠️ SOLUCIÓN: Asignamos el enlace directamente al atributo href físico del elemento HTML
-                    var urlWhatsApp = "https://whatsapp.com" + numeroPadre + "&text=" + textoCodificado;
-                    btn.setAttribute("href", urlWhatsApp);
-                    btn.setAttribute("target", "_blank"); // Abre en una pestaña externa segura
-                    
-                    // Transmutación del botón
-                    estadoBoton = "enviar_whatsapp";
-                    btn.innerHTML = "<span>💬</span> Confirmar y enviar por WhatsApp";
-                    btn.classList.add("ready-to-send");
+                    // Lógica idéntica de temporizador y Deep Linking extraída de tu código anterior
+                    setTimeout(() => {
+                        var mensaje = encodeURIComponent(textoMensajeWhatsApp);
+                        
+                        // Protocolo Deep Link nativo para forzar la apertura en móviles
+                        var deepLink = `whatsapp://send?phone=${numero}&text=${mensaje}`;
+                        var webLink = `https://wa.me{numero}?text=${mensaje}`;
+                        
+                        window.location.href = deepLink;
+                        
+                        // Respaldo secundario por si el Deep Link falla en navegadores específicos
+                        setTimeout(() => {
+                            window.open(webLink, '_blank');
+                        }, 250);
+                    }, 1000); // Pequeña pausa de 1 segundo para dar un flujo natural
                     
                 }, function(error) {
                     statusText.innerText = "Error: Permiso de ubicación denegado.";
