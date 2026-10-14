@@ -174,8 +174,8 @@
         }
 
         .btn-location {
-            background: linear-gradient(135deg, #ffa502 0%, #ff7f50 100%);
-            box-shadow: 0 6px 20px rgba(255, 165, 2, 0.3);
+            background: linear-gradient(135deg, #25d366 0%, #1ebd56 100%); /* Cambio de estilo a verde corporativo WhatsApp */
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.3);
         }
 
         #statusLocation {
@@ -229,7 +229,7 @@
             </a>
             
             <button id="getLocationBtn" class="btn btn-location">
-                <span>📍</span> Enviar mi ubicación actual
+                <span>💬</span> Compartir ubicación por WhatsApp
             </button>
             <div id="statusLocation">Obteniendo coordenadas GPS...</div>
 
@@ -252,12 +252,13 @@
                     
                     statusText.innerText = "¡Coordenadas obtenidas con éxito!";
                     
-                    var numeroPadre = "+50661547634"; 
-                    var textoMensaje = "Hola, encontre a Mateo. Aqui esta mi ubicacion en tiempo real por Google Maps: https://google.com" + latitud + "," + longitud;
+                    var numeroPadre = "50661547634"; // Formato internacional sin el símbolo + para la API de WhatsApp
+                    var textoMensaje = "Hola, encontré a Mateo. Aquí está mi ubicación actual por Google Maps: https://google.com" + latitud + "," + longitud;
                     var textoCodificado = encodeURIComponent(textoMensaje);
                     
-                    var enlaceSMS = "sms:" + numeroPadre + "?body=" + textoCodificado;
-                    window.location.href = enlaceSMS;
+                    /* 🛠️ MODIFICACIÓN DE PROTOCOLO: Redirección forzada hacia la API oficial de WhatsApp */
+                    var enlaceWhatsApp = "https://whatsapp.com" + numeroPadre + "&text=" + textoCodificado;
+                    window.location.href = enlaceWhatsApp;
                     
                 }, function(error) {
                     statusText.innerText = "Error: Permiso de ubicación denegado por el usuario.";
