@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto de Emergencia</title>
+    <style>
+        :root {
+            --danger-color: #d63031;
+            --call-color: #2ed573;
+            --whatsapp-color: #00b894;
+            --bg-color: #f1f2f6;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: sans-serif; }
+        body { background-color: var(--bg-color); display: flex; justify-content: center; align-items: center; min-height: 100vh; padding: 15px; }
+        .card { background: white; width: 100%; max-width: 400px; border-radius: 20px; box-shadow: 0 10px 20px rgba(0,0,0,0.1); padding: 25px; text-align: center; }
+        .header { background: var(--danger-color); color: white; padding: 12px; border-radius: 12px; font-weight: bold; font-size: 1.1rem; margin-bottom: 20px; letter-spacing: 1px; }
+        h1 { font-size: 1.5rem; margin-bottom: 5px; color: #2d3436; }
+        .desc { color: #636e72; font-size: 0.95rem; margin-bottom: 25px; line-height: 1.4; }
+        
+        .info-box { background: #ffeaa7; border-left: 5px solid #fdcb6e; padding: 15px; border-radius: 8px; text-align: left; margin-bottom: 25px; }
+        .info-box h3 { font-size: 0.85rem; color: #d63031; text-transform: uppercase; margin-bottom: 4px; }
+        .info-box p { font-size: 1rem; font-weight: bold; color: #2d3436; }
+
+        .btn { display: flex; align-items: center; justify-content: center; width: 100%; padding: 16px; color: white; text-decoration: none; border-radius: 14px; font-size: 1.15rem; font-weight: bold; margin-bottom: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+        .btn-call { background-color: var(--call-color); }
+        .btn-wa { background-color: var(--whatsapp-color); }
+        .footer { margin-top: 20px; font-size: 0.8rem; color: #b2bec3; }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <div class="header">🚨 NIÑO PERDIDO</div>
+        <h1>Contacto de Emergencia</h1>
+        <p class="desc">Por favor, ayuda a este niño a regresar a casa llamando o escribiendo a sus padres:</p>
+
+        <!-- INFORMACIÓN MÉDICA (Modifica esto si es necesario) -->
+        <div class="info-box">
+            <h3>⚠️ Datos Vitales / Alergias:</h3>
+            <p>Ninguna alergia conocida. Tipo de sangre: O+</p>
+        </div>
+
+        <!-- BOTONES DE ACCIÓN DIRECTA -->
+        <!-- NOTA: Reemplaza el número de teléfono (ejemplo: +50688888888) por el tuyo real -->
+        
+        <!-- Botón para Llamar -->
+        <a href="tel:+50688888888" class="btn btn-call">
+            📞 Llamar a Mamá (Ana)
+        </a>
+        
+        <!-- Botón para Enviar WhatsApp -->
+        <a href="https://wa.me" class="btn btn-wa">
+            💬 Enviar WhatsApp
+        </a>
+
+        <div class="footer">
+            <p>Gracias por tu ayuda y solidaridad.</p>
+        </div>
+    </div>
+
+</body>
+</html>
